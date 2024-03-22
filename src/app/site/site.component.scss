@@ -1,0 +1,26 @@
+.site-image {
+    max-width: 100%;
+    height: auto;
+}
+.map-container {
+  max-width: 100%;
+  overflow: hidden;
+}
+#display-google-map {
+  text-decoration: none;
+  overflow: hidden;
+  max-width: 100%;
+  width: 500px;
+  height: 500px;
+}
+#display-google-map iframe {
+  height: 100%;
+  width: 100%;
+  border: 0;
+}
+#display-google-map img {
+  max-width: none!important;
+  background: none!important;
+  font-size: inherit;
+  font-weight: inherit;
+}

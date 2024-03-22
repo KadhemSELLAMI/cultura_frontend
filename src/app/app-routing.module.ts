@@ -1,7 +1,5 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { AllBlogsComponent } from './all-sites/all-sites.component';
-import { BlogComponent } from './blog/blog.component';
 import { ContactComponent } from './contact/contact.component';
 import { AuthGuard } from './guards/auth.guard';
 import { NoAuthGuard } from './guards/no-auth.guard';
@@ -10,12 +8,14 @@ import { ProfileEditComponent } from './profile-edit/profile-edit.component';
 import { ProfileComponent } from './profile/profile.component';
 import { SignupComponent } from './signup/signup.component';
 import { WriteBlogComponent } from './write-blog/write-blog.component';
+import { SiteComponent } from './site/site.component';
+import { AllSitesComponent } from './all-sites/all-sites.component';
 
 
 const routes: Routes = [
   {
     path: '',
-    redirectTo: '/all_blogs',
+    redirectTo: '/all_sites',
     pathMatch: 'full'
   },
   {
@@ -42,16 +42,16 @@ const routes: Routes = [
     canActivate: [AuthGuard]
   },
   {
-    path: 'blog/:blogId',
-    component: BlogComponent
+    path: 'site/:siteId',
+    component: SiteComponent
   },
   {
-    path: 'all_blogs',
-    component: AllBlogsComponent
+    path: 'all_sites',
+    component: AllSitesComponent
   },
   {
-    path: 'all_blogs/:categoryId',
-    component: AllBlogsComponent
+    path: 'all_sites/:categoryId',
+    component: AllSitesComponent
   },
   {
     path: 'profile_edit',

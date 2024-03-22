@@ -6,7 +6,7 @@ import { Site } from '../interfaces/site';
   templateUrl: './all-sites.component.html',
   styleUrls: ['./all-sites.component.scss']
 })
-export class AllBlogsComponent implements OnInit {
+export class AllSitesComponent implements OnInit {
   mockSites: Site[] = [
     {
       id: 1,

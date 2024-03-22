@@ -1,6 +1,6 @@
 <!-- site.component.html -->
 <div class="container">
-  <h1>Site Information</h1>
+  <h1 class="mt-4">Catégorie des sites</h1>
   <div class="row">
     <div class="col-md-4 mb-4" *ngFor="let site of mockSites">
       <div class="card">
@@ -11,7 +11,7 @@
           <p class="card-text"><strong>Location:</strong> {{ site.location }}</p>
           <p class="card-text"><strong>Description:</strong> {{ site.description }}</p>
           <!-- "See More" button -->
-          <a href="#" class="btn btn-primary">See More</a>
+          <a [routerLink]="['/site', site.id]" class="btn btn-primary">Plus</a>
         </div>
       </div>
     </div>
