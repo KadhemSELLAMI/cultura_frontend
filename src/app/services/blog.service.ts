@@ -3,6 +3,8 @@ import { Injectable } from '@angular/core';
 import { catchError } from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
 import { ErrorService } from './error.service';
+import { Observable } from 'rxjs';
+import { Site } from '../interfaces/site';
 
 @Injectable({
   providedIn: 'root'
@@ -35,8 +37,12 @@ export class BlogService {
     );
   }
 
+  getAll(): Observable<Site[]> {
+    return this._http.get<Site[]>(`${environment.apiUrl}/sites`);
+  }
+
   getblogList(bloggerId, categoryId, page = 1) {
-    return this._http.get(`${environment.apiUrl}/blog/${bloggerId}/${categoryId}?page=${page}`)
+    return this._http.get(`${environment.apiUrl}/sites`)
     .pipe(
       catchError(err => this._errorService.handleError(err))
     );

@@ -1,0 +1,19 @@
+<!-- site.component.html -->
+<div class="container">
+  <h1>Site Information</h1>
+  <div class="row">
+    <div class="col-md-4 mb-4" *ngFor="let site of mockSites">
+      <div class="card">
+        <!-- Site image -->
+        <img [src]="'./assets/img/' + site.img" class="card-img-top" alt="Image de site">
+        <div class="card-body">
+          <h5 class="card-title">{{ site.name }}</h5>
+          <p class="card-text"><strong>Location:</strong> {{ site.location }}</p>
+          <p class="card-text"><strong>Description:</strong> {{ site.description }}</p>
+          <!-- "See More" button -->
+          <a href="#" class="btn btn-primary">See More</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

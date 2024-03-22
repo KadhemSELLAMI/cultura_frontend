@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { AllBlogsComponent } from './all-blogs/all-blogs.component';
+import { AllBlogsComponent } from './all-sites/all-sites.component';
 import { BlogComponent } from './blog/blog.component';
 import { ContactComponent } from './contact/contact.component';
 import { AuthGuard } from './guards/auth.guard';
