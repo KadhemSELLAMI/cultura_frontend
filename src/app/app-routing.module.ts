@@ -8,8 +8,8 @@ import { ProfileEditComponent } from './profile-edit/profile-edit.component';
 import { ProfileComponent } from './profile/profile.component';
 import { SignupComponent } from './signup/signup.component';
 import { WriteBlogComponent } from './write-blog/write-blog.component';
-import { SiteComponent } from './site/site.component';
 import { AllSitesComponent } from './all-sites/all-sites.component';
+import { SiteComponent } from './site/site.component';
 
 
 const routes: Routes = [

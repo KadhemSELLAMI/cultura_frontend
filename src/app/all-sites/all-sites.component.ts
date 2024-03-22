@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Site } from '../interfaces/site';
+import { SiteService } from '../services/site.service';
 
 @Component({
   selector: 'app-all-sites',
@@ -31,7 +32,14 @@ export class AllSitesComponent implements OnInit {
     },
   ];
 
-  constructor() {}
+  sites: Site[] = [];
 
-  ngOnInit() {}
+  constructor(private siteService: SiteService) { }
+
+  ngOnInit() {
+    this.siteService.getSites()
+    .subscribe((sites: Site[]) => {
+      this.sites = sites;
+    });
+  }
 }

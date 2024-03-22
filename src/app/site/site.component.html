@@ -1,23 +1,22 @@
-<div class="container mt-5">
+<div class="container mt-4">
   <div class="row">
     <div class="col-md-8 mx-auto">
-      <div class="card">
+      <div class="card mb-4" >
         <div class="card-header">
-          <h2 class="card-title"> site.name </h2>
+          <h2 class="card-title"> {{ site.name }} </h2>
         </div>
         <div class="card-body">
           <!-- Site image -->
-          <img src="assets/img/Gizah_Pyramids.jpg" class="img-fluid mb-4 site-image" alt="Image de site">
+          <img [src]="'assets/img/' + site.img" class="img-fluid mb-4 site-image" alt="Image de site">
           <!-- Site description -->
           <p><strong>Description:</strong>
-            The Giza Pyramids, located on the Giza Plateau near Cairo, Egypt, are one of the most iconic and ancient architectural wonders of the world. These magnificent structures, consisting of the Great Pyramid of Giza (also known as the Pyramid of Khufu or Cheops), the Pyramid of Khafre, and the Pyramid of Menkaure, were built over 4,500 years ago during the Fourth Dynasty of the Old Kingdom of Egypt.
-            <br>Rising majestically from the desert sands, the Giza Pyramids were constructed as elaborate tombs for the pharaohs, serving as a final resting place for their mummified bodies and treasures. The Great Pyramid of Giza, the largest of the three pyramids, stands at a staggering height of approximately 146 meters (481 feet) and was the tallest man-made structure in the world for over 3,800 years.
-            <br>Surrounding the pyramids is the vast Giza Necropolis, which includes numerous smaller pyramids, temples, tombs, and the enigmatic Sphinx, a colossal limestone statue with the body of a lion and the head of a human. The Giza Pyramids continue to captivate and inspire awe in visitors from around the globe, serving as a testament to the ingenuity, craftsmanship, and grandeur of ancient Egyptian civilization.
+            {{ site.description }}
           </p>
           <!-- Embedded Google Maps -->
           <div class="map-container">
             <div id="display-google-map">
-              <iframe frameborder="0" src="https://www.google.com/maps/embed/v1/place?q=Pyramids+of+Giza,+Nazlet+El-Semman,+Al+Haram,+Egypt&key=AIzaSyBFw0Qbyq9zTFTd-tUY6dZWTgaQzuU17R8"></iframe>
+              <!-- <iframe frameborder="0" src="https://www.google.com/maps/embed/v1/place?q=Pyramids+of+Giza,+Nazlet+El-Semman,+Al+Haram,+Egypt&key=AIzaSyBFw0Qbyq9zTFTd-tUY6dZWTgaQzuU17R8"></iframe> -->
+              <iframe [src]="mapUrl" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
             </div>
           </div>
         </div>
