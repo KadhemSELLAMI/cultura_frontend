@@ -1,7 +1,8 @@
 export interface Site {
-    id: number,
-    name: string,
-    location: string,
-    description: string,
-    img: string
+    id: any,
+    name: any,
+    location: any,
+    description: any,
+    pic_byte: any,
+    image: any
 }

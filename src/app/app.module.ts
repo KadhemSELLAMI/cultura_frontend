@@ -15,8 +15,8 @@ import { ProfileEditComponent } from './profile-edit/profile-edit.component';
 import { ProfileComponent } from './profile/profile.component';
 import { TokenInterceptorService } from './services/token-interceptor.service';
 import { SignupComponent } from './signup/signup.component';
-import { WriteBlogComponent } from './write-blog/write-blog.component';
 import { SiteComponent } from './site/site.component';
+import { AddSiteComponent } from './add-site/add-site.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +26,7 @@ import { SiteComponent } from './site/site.component';
     ProfileComponent,
     NavbarComponent,
     FooterComponent,
-    WriteBlogComponent,
+    AddSiteComponent,
     SiteComponent,
     AllSitesComponent,
     ReverseArrayPipe,

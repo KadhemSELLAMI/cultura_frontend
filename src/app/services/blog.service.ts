@@ -17,7 +17,7 @@ export class BlogService {
   ) { }
 
   writeBlog(data) {
-    return this._http.post(`${environment.apiUrl}/blog`, data)
+    return this._http.post(`${environment.apiUrl}/sites`, data)
     .pipe(
       catchError(err => this._errorService.handleError(err))
     );

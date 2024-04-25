@@ -7,9 +7,9 @@ import { LoginComponent } from './login/login.component';
 import { ProfileEditComponent } from './profile-edit/profile-edit.component';
 import { ProfileComponent } from './profile/profile.component';
 import { SignupComponent } from './signup/signup.component';
-import { WriteBlogComponent } from './write-blog/write-blog.component';
 import { AllSitesComponent } from './all-sites/all-sites.component';
 import { SiteComponent } from './site/site.component';
+import { AddSiteComponent } from './add-site/add-site.component';
 
 
 const routes: Routes = [
@@ -37,9 +37,9 @@ const routes: Routes = [
     component: ProfileComponent
   },
   {
-    path: 'write_blog',
-    component: WriteBlogComponent,
-    canActivate: [AuthGuard]
+    path: 'add_site',
+    component: AddSiteComponent,
+    // canActivate: [AuthGuard]
   },
   {
     path: 'site/:siteId',

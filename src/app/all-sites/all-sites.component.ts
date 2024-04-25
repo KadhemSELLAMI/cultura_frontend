@@ -8,38 +8,26 @@ import { SiteService } from '../services/site.service';
   styleUrls: ['./all-sites.component.scss']
 })
 export class AllSitesComponent implements OnInit {
-  mockSites: Site[] = [
-    {
-      id: 1,
-      name: 'Site A',
-      location: 'City X',
-      description: 'This is Site A description.',
-      img: 'Access_all_angles_Munyonyo_Shrine.jpg'
-    },
-    {
-      id: 2,
-      name: 'Site B',
-      location: 'City Y',
-      description: 'This is Site B description.',
-      img: 'Gizah_Pyramids.jpg'
-    },
-    {
-      id: 3,
-      name: 'Site C',
-      location: 'City Z',
-      description: 'This is Site C description.',
-      img: 'Chichen_Itza.jpg'
-    },
-  ];
-
   sites: Site[] = [];
 
-  constructor(private siteService: SiteService) { }
+  constructor(
+    private siteService: SiteService
+  ) {}
 
   ngOnInit() {
     this.siteService.getSites()
     .subscribe((sites: Site[]) => {
       this.sites = sites;
+      console.log(sites[1].id);
+      console.log(sites[1].name);
+      console.log(sites[1].location);
+      console.log(sites[1].description);
+      console.log(sites[1].image);
+      console.log(sites[1].pic_byte);
     });
+  }
+
+  getImage(bytes:String):String {
+    return "data:image/jpeg;base64," + bytes;
   }
 }

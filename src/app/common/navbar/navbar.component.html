@@ -22,8 +22,9 @@
             <a class="nav-link" routerLink="/all_sites" routerLinkActive="active">Tous sites</a>
           </li>
 
-          <li class="nav-item" [hidden]="!(User | async)">
-            <a class="nav-link" routerLink="/write_blog" routerLinkActive="active">Ajouter site</a>
+          <!-- <li class="nav-item" [hidden]="!(User | async)"> -->
+            <li class="nav-item">
+            <a class="nav-link" routerLink="/add_site" routerLinkActive="active">Ajouter site</a>
           </li>
 
         </ul>
