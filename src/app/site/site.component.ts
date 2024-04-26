@@ -24,7 +24,8 @@ export class SiteComponent implements OnInit, OnDestroy {
     this.siteService.getSiteById(siteId).subscribe(
       (data) => {
         this.site = data;
-        this.mapUrl = this.sanitizer.bypassSecurityTrustResourceUrl(this.constructMapUrl());
+        this.mapUrl = this.sanitizer.bypassSecurityTrustResourceUrl(this.site.location);
+        // console.log(this.site.location);
       },
       (error) => {
         console.error('Error fetching site data:', error);
@@ -32,13 +33,13 @@ export class SiteComponent implements OnInit, OnDestroy {
     );
   }
 
-  private constructMapUrl(): string {
-    if (this.site && this.site.location) {
-      return `https://www.google.com/maps/embed?pb=${this.site.location}`;
-    } else {
-      return '';
-    }
-  }
+  // private constructMapUrl(): string {
+  //   if (this.site && this.site.location) {
+  //     return `https://www.google.com/maps/embed?pb=${this.site.location}`;
+  //   } else {
+  //     return '';
+  //   }
+  // }
 
   ngOnDestroy() {}
 }
