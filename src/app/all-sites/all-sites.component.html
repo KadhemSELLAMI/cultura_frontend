@@ -8,8 +8,8 @@
         <img [src]="'http://localhost:8080/uploads/' + site.image" class="card-img-top" alt="Image de site">
         <div class="card-body">
           <h5 class="card-title">{{ site.name }}</h5>
-          <p class="card-text"><strong>Location:</strong> {{ site.location }}</p>
-          <p class="card-text"><strong>Description:</strong> {{ site.description }}</p>
+          <!-- <p class="card-text"><strong>Location:</strong> {{ site.location }}</p> -->
+          <p class="card-text"><strong>Description:</strong> {{ site.description | slice:0:100 }}...</p>
           <!-- "See More" button -->
           <a [routerLink]="['/site', site.id]" class="btn btn-primary">Plus</a>
         </div>
