@@ -18,12 +18,12 @@ export class AllSitesComponent implements OnInit {
     this.siteService.getSites()
     .subscribe((sites: Site[]) => {
       this.sites = sites;
-      console.log(sites[1].id);
-      console.log(sites[1].name);
-      console.log(sites[1].location);
-      console.log(sites[1].description);
-      console.log(sites[1].image);
-      console.log(sites[1].pic_byte);
+      // console.log(sites[1].id);
+      // console.log(sites[1].name);
+      // console.log(sites[1].location);
+      // console.log(sites[1].description);
+      // console.log(sites[1].image);
+      // console.log(sites[1].pic_byte);
     });
   }
 

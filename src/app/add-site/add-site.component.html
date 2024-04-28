@@ -1,14 +1,9 @@
 <div class="container">
-  <!-- <p *ngIf="categoryList.loading || categoryList.error">
-      {{ categoryList.error }}
-      {{ categoryList.loading ? 'Loading...' : '' }}
-  </p> -->
   <h2 class="mb-4">Add New Site</h2>
-  <!-- <form #siteForm="ngForm" (ngSubmit)="saveSite()" enctype="multipart/form-data"> -->
   <form (ngSubmit)="saveSite()" enctype="multipart/form-data">
     <div class="mb-3">
       <label for="image" class="form-label">Upload Image:</label>
-      <input type="file" id="image" name="imageFile" accept=".jpg,.jpeg,.png" class="form-control" (change)="onFileSelected($event.target.files)" [(ngModel)]="site.data.imageFile" required>
+      <input type="file" id="media" name="media" accept=".jpg,.jpeg,.png" class="form-control" multiple (change)="onFileSelected($event.target.files)" required>
     </div>
     <div class="mb-3">
       <label for="name" class="form-label">Name:</label>
@@ -22,10 +17,6 @@
       <label for="description" class="form-label">Description:</label>
       <textarea id="description" name="description" class="form-control" [(ngModel)]="site.data.description" rows="4" required></textarea>
     </div>
-    <!-- <p *ngIf="site.error" class="text-danger">
-      {{ site.error }}
-    </p> -->
-    <!-- <button [disabled]="siteForm.invalid || site.loading" type="submit" class="btn btn-primary">Add Site</button> -->
     <button type="submit" class="btn btn-primary">Add Site</button>
   </form>
 </div>

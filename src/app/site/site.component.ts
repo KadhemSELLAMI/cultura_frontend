@@ -19,6 +19,8 @@ export class SiteComponent implements OnInit, OnDestroy {
     private sanitizer: DomSanitizer
   ) { }
 
+  baseUrl = 'http://localhost:8080/uploads/';
+
   ngOnInit(): void {
     const siteId = this.route.snapshot.params['siteId'];
     this.siteService.getSiteById(siteId).subscribe(
