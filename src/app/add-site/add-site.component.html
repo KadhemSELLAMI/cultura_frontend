@@ -3,7 +3,8 @@
   <form (ngSubmit)="saveSite()" enctype="multipart/form-data">
     <div class="mb-3">
       <label for="image" class="form-label">Upload Image:</label>
-      <input type="file" id="media" name="media" accept=".jpg,.jpeg,.png" class="form-control" multiple (change)="onFileSelected($event.target.files)" required>
+      <input type="file" id="media" name="media" accept=".jpg,.jpeg,.png" class="form-control" 
+      (change)="onFileSelected($event.target.files)" multiple required>
     </div>
     <div class="mb-3">
       <label for="name" class="form-label">Name:</label>
@@ -20,4 +21,3 @@
     <button type="submit" class="btn btn-primary">Add Site</button>
   </form>
 </div>
-  

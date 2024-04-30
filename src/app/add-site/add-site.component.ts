@@ -12,13 +12,13 @@ export class AddSiteComponent implements OnInit {
   
   site: WriteSite = {
     sub: null,
-    error: null,
+    error: '',
     loading: false,
     data: {
-        name: null,
-        location: null,
-        description: null,
-        imageFile: ''
+        name: '',
+        location: '',
+        description: '',
+        media: [] // Changed to array to store multiple media
     }
   };
 
@@ -29,8 +29,11 @@ export class AddSiteComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  onFileSelected(files: FileList) {
-    this.site.data.imageFile = files.item(0);
+  onFileSelected(media: FileList) {
+    // Loop through each selected file and push it to the array
+    for (let i = 0; i < media.length; i++) {
+      this.site.data.media.push(media.item(i) as never);
+    }
   }
 
   saveSite() {
@@ -41,7 +44,11 @@ export class AddSiteComponent implements OnInit {
     formData.append('name', this.site.data.name);
     formData.append('location', this.site.data.location);
     formData.append('description', this.site.data.description);
-    formData.append('media', this.site.data.imageFile);
+    
+    // Append each file to formData
+    for (let i = 0; i < this.site.data.media.length; i++) {
+      formData.append('media', this.site.data.media[i]);
+    }
     
     this.site.sub = this._siteService.writeBlog(formData)
     .subscribe((res:any) => {

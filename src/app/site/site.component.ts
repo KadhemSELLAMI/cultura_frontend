@@ -1,5 +1,4 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { Site } from '../interfaces/site';
 import { SiteService } from '../services/site.service';
 import { ActivatedRoute } from '@angular/router';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
@@ -10,7 +9,7 @@ import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
   styleUrls: ['./site.component.scss']
 })
 export class SiteComponent implements OnInit, OnDestroy {
-  site: any;
+  site: any; // Initialize site.media as an empty array
   mapUrl: SafeResourceUrl; // Declare mapUrl as SafeResourceUrl
 
   constructor(
@@ -20,6 +19,25 @@ export class SiteComponent implements OnInit, OnDestroy {
   ) { }
 
   baseUrl = 'http://localhost:8080/uploads/';
+  medias: string[];
+  test: string;
+
+  parseMediaString(mediaString: string): string[] {
+    // Regular expression to match strings between double quotes
+    const regex = /"([^"]*)"/g;
+    
+    // Array to store the matched strings
+    const mediaArray: string[] = [];
+
+    // Iterate through each match and push the matched string (without quotes) into the array
+    let match;
+    while ((match = regex.exec(mediaString)) !== null) {
+      mediaArray.push(match[1]);
+    }
+
+    return mediaArray;
+  }
+
 
   ngOnInit(): void {
     const siteId = this.route.snapshot.params['siteId'];
@@ -27,21 +45,15 @@ export class SiteComponent implements OnInit, OnDestroy {
       (data) => {
         this.site = data;
         this.mapUrl = this.sanitizer.bypassSecurityTrustResourceUrl(this.site.location);
-        // console.log(this.site.location);
+        this.medias = this.parseMediaString(this.site.media);
+        this.test = this.medias[0];
+        console.log(this.medias); // Add this line for debugging
       },
       (error) => {
         console.error('Error fetching site data:', error);
       }
     );
   }
-
-  // private constructMapUrl(): string {
-  //   if (this.site && this.site.location) {
-  //     return `https://www.google.com/maps/embed?pb=${this.site.location}`;
-  //   } else {
-  //     return '';
-  //   }
-  // }
 
   ngOnDestroy() {}
 }
