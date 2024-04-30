@@ -8,6 +8,6 @@ export interface WriteSite {
         name: string,
         location: string,
         description: string,
-        imageFile: any
+        media: []
     }
 }
